@@ -9,15 +9,15 @@ MAINTAINER ameizi <sxyx2008@163.com>
 ENV VERSION 1.6.0-SNAPSHOT
 ENV SERVER_PORT 8070
 # DataSource Info 
-ENV DS_URL ""
-ENV DS_USERNAME ""
-ENV DS_PASSWORD ""
+ENV DS_URL "jdbc:mysql://mysql-svc1:3306/ApolloPortalDB?characterEncoding=utf8"
+ENV DS_USERNAME "root"
+ENV DS_PASSWORD "123456"
 # Environmental variable declaration (meta server url, different environments should have different meta server addresses)
-ENV DEV_META ""
-ENV FAT_META ""
-ENV UAT_META ""
-ENV LPT_META ""
-ENV PRO_META ""
+ENV DEV_META "http://apollo-configservice:8080"
+ENV FAT_META "http://apollo-configservice:8080"
+ENV UAT_META "http://apollo-configservice:8080"
+ENV LPT_META "http://apollo-configservice:8080"
+ENV PRO_META "http://apollo-configservice:8080"
 
 RUN echo "http://mirrors.aliyun.com/alpine/v3.8/main" > /etc/apk/repositories \
     && echo "http://mirrors.aliyun.com/alpine/v3.8/community" >> /etc/apk/repositories \

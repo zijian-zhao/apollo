@@ -9,9 +9,9 @@ MAINTAINER ameizi <sxyx2008@163.com>
 ENV VERSION 1.6.0-SNAPSHOT
 ENV SERVER_PORT 8090
 # DataSource Info
-ENV DS_URL ""
-ENV DS_USERNAME ""
-ENV DS_PASSWORD ""
+ENV DS_URL "jdbc:mysql://mysql-svc1:3306/ApolloConfigDB?characterEncoding=utf8"
+ENV DS_USERNAME "root"
+ENV DS_PASSWORD "123456"
 
 RUN echo "http://mirrors.aliyun.com/alpine/v3.8/main" > /etc/apk/repositories \
     && echo "http://mirrors.aliyun.com/alpine/v3.8/community" >> /etc/apk/repositories \
