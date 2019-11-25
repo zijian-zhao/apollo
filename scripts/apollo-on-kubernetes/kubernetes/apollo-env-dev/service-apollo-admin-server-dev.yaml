@@ -76,12 +76,12 @@ spec:
                 path: application-github.properties
       
       initContainers:
-        - image: alpine-bash:3.8
+        - image: ericzhaoplus/alpine-bash:3.8
           name: check-service-apollo-config-server-dev
           command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-config-server-dev.sre:8080"]
       
       containers:
-        - image: apollo-admin-server:v1.0.0
+        - image: ericzhaoplus/apollo-admin-server:v1.0.0
           securityContext:
             privileged: true
           imagePullPolicy: IfNotPresent
