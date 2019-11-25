@@ -1,33 +1,33 @@
 
-#---
-## 为外部 mysql 服务设置 service
-#kind: Service
-#apiVersion: v1
-#metadata:
-#  namespace: sre
-#  name: service-mysql-for-portal-server
-#  labels:
-#    app: service-mysql-for-portal-server
-#spec:
-#  ports:
-#    - protocol: TCP
-#      port: 3306
-#      targetPort: 3306
-#  type: ClusterIP
-#  sessionAffinity: None
-#---
-#kind: Endpoints
-#apiVersion: v1
-#metadata:
-#  namespace: sre
-#  name: service-mysql-for-portal-server
-#subsets:
-#  - addresses:
-#      # 更改为你的 mysql addresses, 例如 1.1.1.1
-#      - ip: your-mysql-addresses
-#    ports:
-#      - protocol: TCP
-#        port: 3306
+---
+# 为外部 mysql 服务设置 service
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: sre
+  name: service-mysql-for-portal-server
+  labels:
+    app: service-mysql-for-portal-server
+spec:
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  type: ClusterIP
+  sessionAffinity: None
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  namespace: sre
+  name: service-mysql-for-portal-server
+subsets:
+  - addresses:
+      # 更改为你的 mysql addresses, 例如 1.1.1.1
+      - ip: 10.106.240.233
+    ports:
+      - protocol: TCP
+        port: 3306
 
 ---
 # configmap for apollo-portal-server
@@ -38,7 +38,7 @@ metadata:
   name: configmap-apollo-portal-server
 data:
   application-github.properties: |
-    spring.datasource.url = jdbc:mysql://mysql-svc1:3306/ApolloPortalDB?characterEncoding=utf8
+    spring.datasource.url = jdbc:mysql://service-mysql-for-portal-server.sre:3306/ApolloPortalDB?characterEncoding=utf8
     # mysql username
     spring.datasource.username = root
     # mysql password
