@@ -43,6 +43,7 @@ data:
     spring.datasource.username = root
     # mysql password
     spring.datasource.password = 123456
+    spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
   apollo-env.properties: |
     dev.meta=http://service-apollo-config-server-dev.sre:8080
 
