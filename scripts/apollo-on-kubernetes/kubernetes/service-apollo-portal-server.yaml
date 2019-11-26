@@ -149,18 +149,18 @@ spec:
             - name: APOLLO_PORTAL_SERVICE_NAME
               value: "service-apollo-portal-server.sre"
           
-#          readinessProbe:
-#            tcpSocket:
-#              port: 8070
-#            initialDelaySeconds: 10
-#            periodSeconds: 5
-#
-#          livenessProbe:
-#            tcpSocket:
-#              port: 8070
-#            # 120s 内, server 未启动则重启 container
-#            initialDelaySeconds: 600
-#            periodSeconds: 15
+          readinessProbe:
+            tcpSocket:
+              port: 8070
+            initialDelaySeconds: 10
+            periodSeconds: 5
+
+          livenessProbe:
+            tcpSocket:
+              port: 8070
+            # 120s 内, server 未启动则重启 container
+            initialDelaySeconds: 120
+            periodSeconds: 10
           
       dnsPolicy: ClusterFirst
       restartPolicy: Always
