@@ -159,7 +159,7 @@ spec:
             tcpSocket:
               port: 8070
             # 120s 内, server 未启动则重启 container
-            initialDelaySeconds: 300
+            initialDelaySeconds: 600
             periodSeconds: 15
           
       dnsPolicy: ClusterFirst
