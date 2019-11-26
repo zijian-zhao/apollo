@@ -154,14 +154,14 @@ spec:
           readinessProbe:
             tcpSocket:
               port: 8070
-            initialDelaySeconds: 10
+            initialDelaySeconds: 300
             periodSeconds: 5
           
           livenessProbe:
             tcpSocket:
               port: 8070
             # 120s 内, server 未启动则重启 container
-            initialDelaySeconds: 120
+            initialDelaySeconds: 300
             periodSeconds: 15
           
       dnsPolicy: ClusterFirst
